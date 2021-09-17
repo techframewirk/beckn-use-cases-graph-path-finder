@@ -1,0 +1,15 @@
+{
+  "name": "graph-path-finder",
+  "version": "1.0.0",
+  "description": "Finds all the possible paths from beckn use case graph json output",
+  "main": "index.js",
+  "author": "Nirmal",
+  "license": "MIT",
+  "scripts": {
+    "dev": "nodemon index.ts",
+    "start": "node index.ts"
+  },
+  "dependencies": {
+    "lodash": "^4.17.21"
+  }
+}
