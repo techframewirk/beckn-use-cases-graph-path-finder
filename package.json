@@ -6,8 +6,8 @@
   "author": "Nirmal",
   "license": "MIT",
   "scripts": {
-    "dev": "nodemon index.ts",
-    "start": "node index.ts"
+    "dev": "nodemon index.js",
+    "start": "node index.js"
   },
   "dependencies": {
     "lodash": "^4.17.21"
