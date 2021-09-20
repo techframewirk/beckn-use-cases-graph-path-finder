@@ -45,6 +45,9 @@ const construct_tree = (response) => {
     for(row of tree) {
         csv_text = csv_text + `\n${response.participant_name}_${response.organisation_name}_${response.role_in_network}\t` + createRowText(row)
     }
+    if (!fs.existsSync('./outputs')){
+        fs.mkdirSync('./outputs');
+    }
     fs.writeFileSync(`./outputs/${response.participant_name}_${response.organisation_name}_${response.role_in_network}.csv`, csv_text)
 }
 
