@@ -11,10 +11,11 @@ const start = () => {
         if(json.endsWith('.json')) {
             console.log(`\nProcessing ${json}`)
             const contents = fs.readFileSync(`./inputs/${json}`, 'utf8')
-            construct_tree(JSON.parse(contents))
-            processed.push(json)
+            response = JSON.parse(contents)
+            const file_name = construct_tree(JSON.parse(contents))
+            processed.push(file_name)
         } else {
-            console.log(`Skipped ${json}. Filename should end with .json`)
+            console.log(`\nSkipped ${json}. Filename should end with .json`)
         }
     }
     console.log('\nCreating combined csv')

@@ -48,13 +48,15 @@ const construct_tree = (response) => {
     if (!fs.existsSync('./outputs')){
         fs.mkdirSync('./outputs');
     }
-    fs.writeFileSync(`./outputs/${response.participant_name}_${response.organisation_name}_${response.role_in_network}.csv`, csv_text)
+    const file_name = `${response.participant_name}_${response.organisation_name}_${response.role_in_network}.csv`
+    console.log(`Creating file ${file_name}.csv`)
+    fs.writeFileSync(`./outputs/${file_name}.csv`, csv_text)
+    return file_name
 }
 
-const combine_files = (jsons) => {
+const combine_files = (files) => {
     csv_text = 'participant_details \t' + order_by.join('\t') + '\n'
-    for(const json of jsons) {
-        const file_name = json.slice(0, -4) + 'csv'
+    for(const file_name of files) {
         var contents = fs.readFileSync(`./outputs/${file_name}`, 'utf8')
         contents = contents.split('\n').slice(1).join('\n')
         csv_text = csv_text + contents + `\n`;
