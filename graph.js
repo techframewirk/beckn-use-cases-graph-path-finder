@@ -45,13 +45,7 @@ const construct_tree = (response) => {
     for(row of tree) {
         csv_text = csv_text + `\n${response.participant_name}_${response.organisation_name}_${response.role_in_network}\t` + createRowText(row)
     }
-    if (!fs.existsSync('./outputs')){
-        fs.mkdirSync('./outputs');
-    }
-    const file_name = `${response.participant_name}_${response.organisation_name}_${response.role_in_network}.csv`
-    console.log(`Creating file ${file_name}.csv`)
-    fs.writeFileSync(`./outputs/${file_name}.csv`, csv_text)
-    return file_name
+    return csv_text;
 }
 
 const combine_files = (files) => {
